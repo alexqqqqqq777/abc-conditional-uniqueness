@@ -1,8 +1,8 @@
 # A Conditional Proof of a Uniqueness Hypothesis for `A^x + B^y = C^z`
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.XXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXX)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.15638756.svg)](https://doi.org/10.5281/zenodo.15638756)
 
-<!-- замените XXXXX на реальный номер после первого релиза -->
+<!-- замените 15638756 на реальный номер после первого релиза -->
 
 > **Status:** version 1.0 (16 Jun 2025); results hold *conditionally on the abc‑conjecture*.
 
@@ -60,7 +60,7 @@ If you use this work, please cite **both** the article *and* this code/data arch
   author       = {Oleksandr Sosnovsky},
   title        = {A Conditional Proof of a Uniqueness Hypothesis
                   for A^x + B^y = C^z under the abc-Conjecture},
-  note         = {Zenodo: 10.5281/zenodo.XXXXX, v1.0},
+  note         = {Zenodo: 10.5281/zenodo.15638756, v1.0},
   year         = 2025
 }
 
@@ -68,14 +68,14 @@ If you use this work, please cite **both** the article *and* this code/data arch
   author  = {Oleksandr Sosnovsky},
   title   = {A Conditional Proof of a Uniqueness Hypothesis
              for A^x + B^y = C^z under the abc-Conjecture},
-  eprint  = {arXiv:2506.XXXXX},
+  eprint  = {arXiv:2506.15638756},
   archivePrefix = {arXiv},
   primaryClass  = {math.NT},
   year    = 2025
 }
 ```
 
-*(replace `XXXXX` with the actual Zenodo/arXiv identifiers once assigned).*
+*(replace `15638756` with the actual Zenodo/arXiv identifiers once assigned).*
 
 ---
 
@@ -90,4 +90,5 @@ If you use this work, please cite **both** the article *and* this code/data arch
 
 ## Contact
 
-Questions, comments, or improvements are welcome — please open an issue or email me at [sosnovsky.math@proton.me](mailto:sosnovsky.math@proton.me).
+Questions, comments, or improvements are welcome — please open an issue or email me at [alexqqqqqq@gmail.com
+](mailto:alexqqqqqq@gmail.com).
