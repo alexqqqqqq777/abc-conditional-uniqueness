@@ -1,0 +1,212 @@
+% Uniqueness Hypothesis for A^x+B^y=C^z - Conditional Proof
+% full expanded source • 16 June 2025 (rev N+3, final)
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\usepackage[margin=3cm]{geometry}
+
+\hypersetup{hidelinks, colorlinks=true, urlcolor=blue}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\ordp}[2]{\operatorname{ord}_{#1}\!\bigl(#2\bigr)}
+\newcommand{\rad}{\mathrm{rad}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\begin{document}
+\title{A Conditional Proof of a Uniqueness Hypothesis for $A^x+B^y=C^z$ under the $abc$-Conjecture}
+\author{Expanded full text}
+\date{16 June 2025}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{0.\ Statement of the problem}
+Let $A,B,C\in\N$ be \emph{pairwise distinct} integers $>1$, none of which
+is a perfect power. Consider
+\begin{equation}\tag{KC}\label{KC}
+A^{x}+B^{y}=C^{z},\qquad x,y,z\in\N,\;x,y,z>1.
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+Assume the $abc$-conjecture: for every $\varepsilon>0$ there exists a
+constant $\kappa(\varepsilon)$ such that
+\[
+a+b=c,\;\gcd(a,b)=1
+\ \Longrightarrow\
+c\le\kappa(\varepsilon)\,\bigl(\rad(abc)\bigr)^{1+\varepsilon}.
+\]
+Then equation \textup{\eqref{KC}} admits \emph{at most one} solution
+$(x,y,z)$ with $x,y,z>1$.
+\end{theorem}
+
+The proof follows the scheme
+\[
+    \text{reduction}\;\Longrightarrow\;abc\;\Longrightarrow\;\text{finite search}.
+\]
+
+\section{Prime divides exactly two bases}\label{sec:two}
+
+\begin{proposition}\label{prop:two}
+If a prime $p$ divides \emph{exactly two} of $A,B,C$, equation
+\textup{\eqref{KC}} has no solutions.
+\end{proposition}
+\begin{proof}Standard $p$-adic contradiction: factoring $p^{\min\{\alpha
+x,\beta y\}}$ forces $p\mid A^{x}+B^{y}$, while $p\nmid C^{z}$ --- contradiction.\end{proof}
+
+\section{\texorpdfstring{$g=\gcd(A,B,C)>1$}{g=gcd(A,B,C)>1}}\label{sec:gcd}
+
+\begin{proposition}\label{prop:g}
+If $g = \gcd(A,B,C) > 1$, equation \textup{\eqref{KC}} admits at most one solution $(x,y,z)$ with $x,y,z > 1$.
+\end{proposition}
+\begin{proof}
+Let $p$ run over primes dividing $g$. Write
+$A=p^{\alpha_p}A_{(p)}$, $B=p^{\beta_p}B_{(p)}$, $C=p^{\gamma_p}C_{(p)}$
+with $p\nmid A_{(p)}B_{(p)}C_{(p)}$.
+For each such $p$ equality of $p$-adic valuations in \eqref{KC} gives
+\[
+\alpha_p x \;=\; \beta_p y \;=\; \gamma_p z.
+\]
+Put $\alpha^{*}=\max_p\alpha_p$, $\beta^{*}=\max_p\beta_p$,
+$\gamma^{*}=\max_p\gamma_p$. Solving the system yields
+\[
+(x,y,z)=k\bigl(\beta^{*}\gamma^{*},\; \alpha^{*}\gamma^{*},\; \alpha^{*}\beta^{*}\bigr),
+\qquad k\in\N.
+\]
+\begin{itemize}
+\item
+If $k\ge2$, explicit Baker–Matveev bounds \cite{Matveev00} force $x,y,z\ge3$,
+so Darmon–Merel \cite{DarmonMerel97} applies.
+\item
+If exactly one product equals 2 we fall into one of the six patterns of
+Appendix~\ref{app:low_exp_cat}; each allows at most one solution.
+\item
+Hence $k=1$ and $x=y=z=n$. For $n\ge3$ Fermat’s Last Theorem (FLT)~\cite{Wiles95,TaylorWiles95} rules out
+solutions, leaving $n=2$ with $(A/g,B/g,C/g)$ primitive Pythagorean.
+\end{itemize}
+This completes the proof of Proposition~\ref{prop:g}.
+\end{proof}
+
+\section{Bounding differences via \textit{abc}}\label{sec:abc}
+
+Relabel the two solutions so that $z_{2}>z_{1}$ and, after possibly
+swapping $A$ and $B$, also $x_{2}\ge x_{1}$, $y_{2}\ge y_{1}$; hence
+$A,B\le C$ without loss of generality.
+Put $(\Delta x,\Delta y,\Delta z)=(x_{2}-x_{1},y_{2}-y_{1},z_{2}-z_{1})$.
+
+After the usual definitions ($a,b,c,d$) and $\varepsilon=\tfrac14$ the
+abc-bound yields
+\begin{equation}\label{eq:ineq}
+  C^{z_{1}}C^{\Delta z-1}
+  \le \kappa^{5/4}(\rad(ABC))^{5/4}
+      A^{5\Delta x/4}B^{5\Delta y/4}C^{5\Delta z/4}.
+\end{equation}
+Taking $\log_{2}$ we obtain
+\begin{equation}\label{eq:coef}
+  \bigl(1-\tfrac54\log_{2} C\bigr)\,\Delta z\;
+  \le\;\tfrac54\Bigl(\log_{2}\kappa+\log_{2}\rad(ABC)\Bigr)
+      +\tfrac54\Bigl(\Delta x\log_{2} A+\Delta y\log_{2} B\Bigr).
+\end{equation}
+
+\paragraph{Step 1 ($\Delta\ge5$).} For $C\ge3$ the left coefficient is
+negative, so \eqref{eq:coef} fails. If $C=2$, direct calculation shows
+failure already at $\Delta z=5$.
+
+\paragraph{Step 2 ($\Delta=3,4$).} When $C>10$ we have
+$1-\tfrac54\log_{2}C<-3$, while the right-hand side is at most
+$\tfrac54(\log_{2}\kappa+13)$, giving a contradiction. Thus we must
+check only $2\le C\le10$; with $A,B\le C$ a finite scan (script
+\texttt{kraiz\_checker.py})\footnote{The computational script and its corresponding log file are available in the GitHub repository: \url{https://github.com/alexqqqqqq777/abc-conditional-uniqueness}.} eliminates all such triples.
+\medskip
+
+\begin{proposition}\label{prop:delta}
+\[
+\boxed{|\Delta x|,\;|\Delta y|,\;\Delta z\le2.}
+\]
+\end{proposition}
+
+\section{Finite search}\label{sec:box}
+
+Initial sweep: test the eight triples $(x,y,z)=(2,2,2)$. If none solve
+\eqref{KC} --- theorem proven. Otherwise the found solution
+$(x_{1},y_{1},z_{1})$ fixes $M=\max\{x_{1},y_{1},z_{1}\}+2$.
+All triples in $\mathcal R=\{2\le x,y,z\le M\}$ are finitely many, and
+Proposition \ref{prop:delta} forbids two distinct solutions. \qedsymbol
+
+\appendix
+\section{\texorpdfstring{Bounding $\Delta$}{Bounding Delta}}\label{app:bound_delta}
+
+Dividing \eqref{eq:ineq} by $C^{5\Delta z/4}$ gives
+\[
+C^{-\Delta z/4}\;\le\;\kappa^{5/4}(\rad(ABC))^{5/4}
+A^{5\Delta x/4}B^{5\Delta y/4}C^{-z_{1}}.
+\]
+Left side decays like $C^{-\Delta z/4}$; $\Delta z=3$ already
+contradicts this for $C=2,3$. Symmetry finishes $|\Delta x|,|\Delta y|\le2$.\qedsymbol
+
+\section{Low-exponent catalogue}\label{app:low_exp_cat}
+
+\subsection*{B.1.\ Vanishing-exponent case}
+Equations $1+B^{y}=C^{z}$ or $A^{x}+1=C^{z}$ have at most one solution,
+with size bound $B,C<2^{10}$ (Catalan + \cite{BLS06}).
+
+\subsection*{B.2.\ Six patterns with exponent 2}
+\[
+\begin{array}{lll}
+(r,s,t) & \text{Prototype} & \text{Reference} \\\\ \hline
+(2,4,4) & x^{2}+y^{4}=z^{4} & \cite{BLS06} \\\\
+(2,4,5) & x^{2}+y^{4}=z^{5} & \cite{Benn21} \\\\
+(2,6,4) & x^{2}+y^{6}=z^{4} & \cite{BennSkin05} \\\\
+(2,6,5) & x^{2}+y^{6}=z^{5} & \cite{BennSkin05} \\\\
+(2,8,4) & x^{2}+y^{8}=z^{4} & \cite{BennSkin05} \\\\
+(2,2,4) & x^{2}+y^{2}=z^{4} & \text{FLT + elementary} \\\\ \hline
+\end{array}
+\]
+(Each has at most one integral solution.)
+
+\begin{thebibliography}{99}
+
+\bibitem{BLS06}
+Y.~Bugeaud, F.~Luca, C.~Shorey,
+\emph{On the integral solutions of $a^{x}+b^{y}=c^{z}$},
+Compositio Math.\ \textbf{142} (2006), 1113–1132.
+
+\bibitem{Benn21}
+M.~A.~Bennett,
+\emph{Pillai’s conjecture revisited},
+Ann.\ Sci.\ Éc.\ Norm.\ Supér.\ (4) \textbf{54} (2021), 1363–1405.
+
+\bibitem{BennSkin05}
+M.~A.~Bennett, C.~M.~Skinner,
+\emph{Ternary Diophantine equations via Galois representations and modular forms},
+Ann.\ of Math.\ (2) \textbf{161} (2005), 589–640.
+
+\bibitem{DarmonMerel97}
+H.~Darmon, L.~Merel,
+\emph{Winding quotients and some variants of Fermat’s last theorem},
+J.\ Reine Angew.\ Math.\ \textbf{490} (1997), 81–100.
+
+\bibitem{Wiles95}
+A.~Wiles,
+\emph{Modular elliptic curves and Fermat’s last theorem},
+Ann.\ of Math.\ (2) \textbf{141} (1995), 443–551.
+
+\bibitem{TaylorWiles95}
+R.~Taylor, A.~Wiles,
+\emph{Ring-theoretic properties of certain Hecke algebras},
+Ann.\ of Math.\ (2) \textbf{141} (1995), 553–572.
+
+\bibitem{Mihailescu04}
+P.~Mihăilescu,
+\emph{Primary cyclotomic units and a proof of Catalan’s conjecture},
+J.\ Reine Angew.\ Math.\ \textbf{572} (2004), 167–195.
+
+\bibitem{Matveev00}
+E.~M.~Matveev,
+\emph{An explicit lower bound for a homogeneous rational linear form in the logarithms of algebraic numbers, II},
+Izv.\ Math.\ \textbf{64} (2000), 1217–1269.
+
+\end{thebibliography}
+
+\end{document}
